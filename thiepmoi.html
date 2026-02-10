@@ -1,206 +1,563 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thiệp Mời Cưới</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+    <title>Steven & Hoàng</title>
+    <meta property="og:title" content="Steven & Hoàng" />
+    <meta property="og:description" content="Steven Duong & Khánh Hoàng" />
 
-        .invitation-card {
-            background: white;
-            max-width: 600px;
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            animation: fadeIn 1s ease-in;
-        }
+    <meta property="og:image" content="" />
+    <meta property="og:image:width" content="600" /> 
+    <meta property="og:image:height" content="400" /> 
+    <!-- <meta property="og:url" content="" /> -->
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"
+        type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"
+        type="text/css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"
+        integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+        integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 40px 20px;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-
-        .header::before {
-            content: '♥';
-            font-size: 60px;
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: heartbeat 1.5s infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: translateX(-50%) scale(1); }
-            50% { transform: translateX(-50%) scale(1.1); }
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-top: 40px;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .header p {
-            font-size: 1.2em;
-            font-style: italic;
-        }
-
-        .content {
-            padding: 40px;
-            text-align: center;
-        }
-
-        .couple-names {
-            font-size: 3em;
-            color: #764ba2;
-            margin: 20px 0;
-            font-weight: bold;
-        }
-
-        .ampersand {
-            font-size: 0.8em;
-            color: #ff6b9d;
-            margin: 0 10px;
-        }
-
-        .date-location {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-            border-left: 5px solid #667eea;
-        }
-
-        .date-location h3 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-
-        .detail {
-            margin: 15px 0;
-            font-size: 1.1em;
-            color: #555;
-        }
-
-        .detail strong {
-            color: #764ba2;
-        }
-
-        .message {
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: #666;
-            margin: 20px 0;
-            font-style: italic;
-        }
-
-        .footer {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-            text-align: center;
-            color: white;
-        }
-
-        .decorative-line {
-            width: 200px;
-            height: 2px;
-            background: linear-gradient(to right, transparent, #764ba2, transparent);
-            margin: 20px auto;
-        }
-
-        @media (max-width: 600px) {
-            .couple-names {
-                font-size: 2em;
-            }
-            
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .content {
-                padding: 20px;
-            }
-        }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
-    <div class="invitation-card">
-        <div class="header">
-            <h1>Thiệp Mời Cưới</h1>
-            <p>Trân trọng kính mời</p>
-        </div>
-
-        <div class="content">
-            <div class="couple-names">
-                Steven Duong<br>
-                <span class="ampersand">&</span> <br>
-                Khánh Hoàng
-            </div>
-
-            <div class="decorative-line"></div>
-
-            <p class="message">
-                Chúng tôi trân trọng kính mời Quý khách đến dự<br>
-                buổi tiệc chung vui cùng gia đình chúng tôi
-            </p>
-
-            <div class="date-location">
-                <h3>📅 Thông Tin Tiệc Cưới</h3>
-                <div class="detail">
-                    <strong>Thời gian:</strong> 18:00, Chủ Nhật, 15/12/2024
-                </div>
-                <div class="detail">
-                    <strong>Địa điểm:</strong> Nhà Hàng Tiệc Cưới Riverside
-                </div>
-                <div class="detail">
-                    <strong>Địa chỉ:</strong> 123 Đường Lê Lợi, Quận 1, TP.HCM
-                </div>
-            </div>
-
-            <div class="decorative-line"></div>
-
-            <p class="message">
-                Sự hiện diện của Quý khách là niềm vinh hạnh<br>
-                cho gia đình chúng tôi!
-            </p>
-        </div>
-
-        <div class="footer">
-            <p>💝 Rất hân hạnh được đón tiếp 💝</p>
-        </div>
+    <div id="loading-container" class="loading-container">
+        <div class="spinner"></div>
     </div>
+    <div class="container">
+        <div class="container-wrapper">
+            <div class="box-top">
+                <div class="box-contop">
+                    <img src="anh/logo.png" alt="" class="img-top">
+                    <div class="box-dot">
+                        <label for="" class="dotwelcome"><i class="fa-solid fa-circle"></i></label>
+                        <label for="" class="lb-top">Always and forever</label>
+                        <label for="" class="dotwelcome"><i class="fa-solid fa-circle"></i></label>
+                    </div>
+                    <label for="" class="lb-top2">WELCOME TO OUR WEDDING</label>
+                    <label for="" class="lb-top3">Steven Duong & Khánh Hoàng</label>
+                </div>
+            </div>
+
+            <div class="info nha-gai">
+                <div class="parents">
+                    <label for="" class="lb-parents">GROOM’S FAMILY: Mr. ________ and Mrs. ________
+                    </label>
+                    <label for="" class="lb-parents">BRIDE’S FAMILY: Mr. ________ and Mrs. ________
+                    </label>
+                </div>
+
+                <div class="box-flow">
+                    <img src="anh/flower1-03.png" alt="" class="img-flow">
+                </div>
+
+                <div class="inv">
+                    <p for="" class="kinhmoi">We cordially invite you<br>
+                        to spend your precious time with us at our wedding ceremony</p>
+                    <label for="" class="lb-inv">Steven Duong & Khánh Hoàng</label>
+
+                    <img src="/anh/IMG_3640.webp" alt="" class="img-inv">
+
+                    <div class="time-add">
+                        <!-- <p class="nhatrai">Nhà Gái</p> -->
+                        
+
+                        <label for="" class="lb-time">AT __:__ PM | OCTOBER | NOVEMBER 3RD 2026</label>
+                        <!-- <label for="" class="lb-time">(ngày 17 tháng 10 năm Ất Tỵ)</label> -->
+                        <label for="" class="lb-add location-name" blank>__ __</label>
+                    </div>
+
+                    <div class="box-map">
+                        <p for="" class="add2">Ho Chi Minh City, Vietnam </p>
+                        <!-- <label for="" class="add2">/No. 21/4, Khu Pho Trung, Binh Hoa Ward, Ho Chi Minh City, Vietnam/</label> -->
+                        <a target="_blank" href="#" class="maps">MAPS</a>
+                    </div>
+                    <!-- <hr> -->
+                    <!-- <div class="time-add">
+                        <p class="nhatrai">Nhà Trai</p>
+                        <label for="" class="lb-time">VÀO <strong>17:00</strong>, Thứ 7 NGÀY
+                            <strong>13.12.2025</strong></label>
+                        <label for="" class="lb-time">(ngày 24 tháng 10 năm Ất Tỵ)</label>
+                        <label for="" class="lb-add location-name" blank>Nhà hàng Bến Bạc</label>
+                    </div>
+
+                    <div class="box-map">
+                        <label for="" class="add2">Số 16 ngõ 144 đường An Dương Vương, Tây Hồ, Hà Nội</label>
+                        <label for="" class="add2">/No. 21/4, Khu Pho Trung, Binh Hoa Ward, Ho Chi Minh City, Vietnam/</label>
+                        <a href="https://maps.app.goo.gl/8pRGELxTyr4JKgEJ9" class="maps">XEM BẢN ĐỒ</a>
+                    </div> -->
+                </div>
+                <div class="box-flow">
+                    <img src="anh/flower1-03.png" alt="" class="">
+                </div>
+            </div>
+
+            <div class="box-timeline">
+                <div class="timeline-top">
+                    <label for="" class="lb-timeline1">Timeline</label>
+                </div>
+                <div class="description">
+                    Our full wedding day will be in Saigon! We’ll start with a Church Ceremony, followed by cocktails and a reception all on the same day.
+                </div>
+
+                <!-- <div class="box-icontime">
+                    <div class="timeline">
+                        <img src="anh/icon1-03.png" alt="" class="img-timeline">
+                        <label for="" class="lb-timeline"><strong>10:00 |</strong> ĐÓN KHÁCH - CHỤP HÌNH</label>
+                    </div>
+                    <div class="timeline">
+                        <img src="anh/icon4-03.png" alt="" class="img-timeline">
+                        <label for="" class="lb-timeline"><strong>12:00 |</strong> KHAI TIỆC </label>
+                    </div>
+                    <div class="timeline">
+                         <img src="anh/party_icon.png" alt="" class="img-timeline">
+                        <label for="" class="lb-timeline"><strong>13:00  |</strong> GAMES </label>
+                    </div>
+                </div> -->
+            </div>
+
+
+            <div class="box-dresscode">
+                <div class="dress-top">
+                    <label for="" class="lb-dress1">Dresscode</label>
+                    <div  class="description">We can’t wait to see everyone looking their best! Our preferred dress code is semi-formal. We also kindly ask that guests refrain from wearing white or cream tones for the occasion.</div>
+                </div>
+                <div class="colors-grid">
+                    <div class="item color-box">
+                        <div class="color" style="background-color: #505738;"></div>
+                    </div>
+                    <div class="item color-box">
+                        <div class="color" style="background-color: #505738;"></div>
+                    </div>
+                    <div class="item color-box">
+                        <div class="color" style="background-color: #505738;"></div>
+                    </div>
+                    <div class="item color-box">
+                        <div class="color" style="background-color: #505738;"></div>
+                    </div>
+                    <div class="item color-box">
+                        <div class="color" style="background-color: #505738;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-image1">
+                <img src="anh/IMG_2885.webp" alt="" class="img1">
+                <img src="anh/IMG_3437.webp" alt="" class="img2">
+            </div>
+
+
+            <!-- <div class="logo">
+                <div class="box-flow">
+                    <img src="anh/flower2-03.png" alt="" class="">
+                </div>
+            </div> -->
+
+            <!-- Slider container -->
+            <!-- <div class="container-slide">
+                <div class="slider">
+                    <div class="slide">
+                        <img src="https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/nhi-phuong/DAT_4704.webp" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/nhi-phuong/DAT_5148.webp" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/nhi-phuong/DAT_5629.webp" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/nhi-phuong/DAT_5754.webp" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/nhi-phuong/DAT_5542.webp" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/nhi-phuong/DAT_5509.webp" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/nhi-phuong/DAT_5374.webp" alt="">
+                    </div>
+                    <button class="btn btn-next"><i class="fa-solid fa-caret-right"></i></button>
+                    <button class="btn btn-prev"><i class="fa-solid fa-caret-left"></i></button>
+                </div>
+                <div class="dots"></div>
+            </div> -->
+
+
+            <form action="" name="nhi-phuong">
+                <div class="logo">
+                    <div class="box-flow">
+                        <img src="anh/flower3-03.png" alt="" class="">
+                    </div>
+                </div>
+                <div class="feed-info">
+                    <!-- <lable class="lb-form">RSVP</lable> -->
+                    <lable class="lb-form1">Confirm Attendance</lable>
+                    <label for="" class="lb-dot"><i class="fa-solid fa-diamond"></i></label>
+                    <label for="" class="in-fe">Please let us know if you can make it by <strong></strong>. We are in the process of securing our venues and will update the site in Marchwith a full schedule and specific details in HCMC. We can’t wait to celebrate with you in Vietnam!</label>
+                    <!-- <label for="" class="in-fe">/RSVP BY SEPTEMBER 20TH. THIS HELPS US <br>
+                        TO HOST YOU MORE THOUGHTFULLY AND FULLY. THANK YOU!!!/</label> -->
+                </div>
+
+                <div class="container-check attend-check">
+                    <input class="box-feed" type="radio" value="Tham dự" id="bride-yes" checked name="CONFIRM">
+                    <label class="check-box check-box-yes" for="bride-yes">
+                        <h3 class="til-check">YES</h3>
+                    </label>
+                    <!-- <input class="box-feed" type="radio" value="THAM DỰ TIỆC NHÀ TRAI" id="groom-yes" checked name="CONFIRM">
+                    <label class="check-box check-box-yes" for="groom-yes">
+                        <h3 class="til-check">SẼ THAM DỰ TIỆC </br> NHÀ TRAI</h3>
+                    </label> -->
+                    <input class="box-feed" type="radio" value="Không tham dự" id="no" name="CONFIRM">
+                    <label class="check-box" for="no">
+                        <h3 class="til-check">NO</h3>
+                    </label>
+                </div>
+
+                <div class="box-ten">
+                    <input required class="inp-ten" type="text" id="name" name="NAME"
+                        placeholder="Name">
+                    <input required class="inp-ten" type="text" name="GUEST"
+                        placeholder="Companion Name" maxlength="1" pattern="\d" />
+
+                </div>
+
+                <div class="box-label">
+                    <label for="" class="lb-text">Do you have any special dietary requirements?</label>
+                </div>
+                <div class="container-check visible dietary-check">
+                    <input class="box-feed" type="radio" value="Không" id="khong_an_chay" name="dietary">
+                    <label class="check-box" for="khong_an_chay">
+                        <h3 class="til-check">No</h3>
+                    </label>
+                    <input class="box-feed" type="radio" value="Tôi ăn chay" id="an_chay" name="dietary">
+                    <label class="check-box" for="an_chay"> 
+                        <h3 class="til-check">I am vegetarian</h3>
+                    </label>
+                </div>
+                <div class="container-check">
+                    <input class="inp-ten" type="text" name="DIETARY_NOTE" placeholder="Dietary Restrictions" />
+                </div>
+                <!-- <div class="box-ten">
+                    <textarea id="loi-chuc" name="WISH" rows="6" cols="50" placeholder="HÃY GỬI LỜI CHÚC ĐẾN CÔ DÂU VÀ CHÚ RỂ NHÉ"></textarea>
+                </div> -->
+                <div class="wrapper">
+                    <button class="xacnhan" type="submit">CONFIRM</button>
+                </div>
+            </form>
+            <!-- <div class="card">
+                <p>
+                    “Gửi đến những người thân yêu và bạn bè không thể cùng hiện diện trong ngày cưới.
+                    Chúng mình sẽ rất nhớ bạn trong ngày đặc biệt này, nhưng tình cảm và lời chúc phúc của bạn
+                    luôn vô cùng ý nghĩa và sẽ mãi được trân trọng.”
+                </p>
+                <div class="lb-dot-card">
+                    <label for="" class="lb-dot"><i class="fa-solid fa-diamond"></i></label>
+                </div>
+
+                <p style="font-style: italic;">
+                    /“FOR OUR DEAR FRIENDS AND FAMILY WHO CANNOT BE
+                    WITH US. WE’LL MISS YOU ON OUR BIG DAY, BUT YOUR
+                    LOVE AND WISHES MEAN THE WORLD TO US AND WILL
+
+                    ALWAYS BE CHERISHED”/
+                </p>
+
+                <div class="flower">
+                    <img src="anh/core/g81.png" alt="" class="">
+                </div>
+
+                <p>
+                    Gửi quà mừng cưới dành tặng cô dâu và chú rể nhé!<br>
+                </p>
+                <div class="container-qr-code">
+                    <a href="#" class="qr-btn" id="qr-btn">QR CODE</a>
+                </div>
+            </div> -->
+
+            
+
+            <div class="end">
+                <!-- <label for="" class="lb-end" >QUÉT MÃ QR CODE DƯỚI ĐÂY <br>
+                    NẾU BẠN MUỐN GỬI QUÀ MỪNG CƯỚI DÀNH TẶNG CHO <br>
+                     <strong>KEN</strong> VÀ <strong>TRÚC</strong> NHÉ!</label> -->
+                <!-- <img src="anh/core/Cici3689.jpg" alt="" class="img-qr">   -->
+                <label for="" class="lb-thank">Thank you!</label>
+                <label for="" class="lb-end
+                ">Your presence is our greatest joy. We look forward to celebrating with you on our wedding day.</label>
+                <label for="" class="yen">YÊN STUDIO | YÊN BỀ GIA THẤT</label>
+            </div>
+        </div>
+        <button class="player" id="player-btn" aria-label="Play/Pause">
+            <img id="iconSvg" src="anh/cd.png" alt="Music Icon">
+        </button>
+          <audio id="audio" preload="auto"
+              src="audio/Christina Perri - A Thousand Years [NZGHXy1IAHM] (mp3cut.net).mp3" loop
+              type="audio/mpeg"></audio>
+    </div>
+    <script>
+        window.onload = function () {
+            // Lấy tất cả các phần tử cho các hiệu ứng fade-down, fade-up, fade-right, fade-left, zoom-in
+            const fadeDownElements = document.querySelectorAll('.kinhmoi, .lb-inv');  // Các phần tử fade-down
+            const fadeUpElements = document.querySelectorAll('.lb-time, .lb-add, .timeline, .in-fe, .container-check, .inp-ten, .lb-text, #loi-chuc');    // Các phần tử fade-up
+            const fadeRightElements = document.querySelectorAll('.box-nu, .img1');                               // Các phần tử fade-right
+            const fadeLeftElements = document.querySelectorAll('.box-nam, .img2');                                // Các phần tử fade-left
+            const zoomInElements = document.querySelectorAll('.timeline-top, .lb-dress1, .lb-dress2, .xacnhan');                // Các phần tử zoom-in
+
+            // Cấu hình của IntersectionObserver
+            const options = {
+                root: null, // Theo mặc định là viewport
+                threshold: 0.5 // Kích hoạt khi 50% phần tử hiển thị trong viewport
+            };
+
+            // Tạo đối tượng IntersectionObserver để theo dõi sự xuất hiện và mất đi của phần tử
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Nếu phần tử xuất hiện trong viewport, thêm lớp "visible"
+                        entry.target.classList.add('visible');
+                    } else {
+                        // Nếu phần tử không còn trong viewport, xóa lớp "visible"
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, options);
+
+            // Quan sát các phần tử theo từng hiệu ứng
+            fadeDownElements.forEach(element => observer.observe(element));
+            fadeUpElements.forEach(element => observer.observe(element));
+            fadeRightElements.forEach(element => observer.observe(element));
+            fadeLeftElements.forEach(element => observer.observe(element));
+            zoomInElements.forEach(element => observer.observe(element));
+        };
+
+    </script>
+    <script>
+        const scripConfirmtURL = '?sheet=confirm';
+        const form = document.forms['nhi-phuong'];
+
+        form.addEventListener('submit', e => {
+            e.preventDefault(); // Ngừng việc gửi form mặc định
+
+            document.getElementById('loading-container').style.display = 'flex';
+
+            let formData = new FormData(form);
+            let data = Object.fromEntries(formData.entries());
+            const confirm = data.CONFIRM;
+            const name = data.NAME;
+            const number_guest = data.GUEST;
+            const dietary = data.dietary;
+            const wish = data.WISH;
+
+            // Gửi dữ liệu form đi
+            fetch(scripConfirmtURL, {
+                method: 'POST',
+                body: new URLSearchParams({ 
+                    name, 
+                    confirm, 
+                    number_guest, 
+                    dietary, 
+                    wish 
+                })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // Nếu dữ liệu gửi thành công, làm mới lại form
+                        // Làm mới lại form
+
+                        document.getElementById('loading-container').style.display = 'none';
+
+                        Swal.fire({
+                            title: 'Thành công',
+                            text: 'Cảm ơn bạn đã gửi phản hồi, thông tin đã được gửi đến dâu rể rồi nhaa <3',
+                            imageWidth: 300,
+                            imageHeight: 200,
+                            confirmButtonText: 'ĐÓNG',
+                            background: '#f8f8f8',
+                            padding: '20px',
+                            customClass: {
+                                popup: 'custom-popup',
+                                title: 'custom-title',
+                                confirmButton: 'custom-confirm-button'
+                            },
+                            didOpen: () => {
+                                document.querySelector('.swal2-popup').style.borderRadius = '10px'; // Bo tròn các góc
+                            }
+                        });
+                    } else {
+                        // Nếu gặp lỗi khi gửi dữ liệu
+                        console.error('Error!', response);
+                        form.reset();
+
+                        document.getElementById('loading-container').style.display = 'none';
+
+                        Swal.fire({
+                            title: 'Oops!',
+                            text: 'Lỗi mất rồi thử lại giúp chúng mình nhé',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                })
+                .catch(error => {
+                    // Xử lý lỗi nếu có
+                    form.reset();
+                    console.error('Error!', error.message);
+
+                    document.getElementById('loading-container').style.display = 'none';
+
+                    Swal.fire({
+                        title: 'Oops!',
+                        text: 'Lỗi mất rồi thử lại giúp chúng mình nhé',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                });
+        });
+    </script>
+    <script>
+        "use strict";
+        // Select all slides
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.querySelector('.dots');
+        let currentIndex = 0;
+        let slideInterval;
+
+        // tạo dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            dot.addEventListener('click', () => showSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+        const nextSlideBtn = document.querySelector(".btn-next");
+        const prevSlideBtn = document.querySelector(".btn-prev");
+
+        nextSlideBtn.addEventListener("click", () => {
+            nextSlide();
+        })
+
+        prevSlideBtn.addEventListener("click", () => {
+            prevSlide();
+        })
+
+        function showSlide(index) {
+            slides.forEach(s => s.style.display = 'none');
+            dots.forEach(d => d.classList.remove('active'));
+
+            slides[index].style.display = 'block';
+            dots[index].classList.add('active');
+
+            currentIndex = index;
+
+            // reset interval để không bị nhảy sai
+            clearInterval(slideInterval);
+            startSlideShow();
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            if (currentIndex === 0) {
+                currentIndex = slides.length - 1;
+            } else {
+                currentIndex--;
+            }
+            showSlide(currentIndex);
+        }
+
+        function startSlideShow() {
+            slideInterval = setInterval(nextSlide, 5000); // 5 giây đổi ảnh
+        }
+
+        // hiển thị slide đầu tiên
+        showSlide(currentIndex);
+        // startSlideShow();
+
+    </script>
+    <script>
+        async function toggleMusic(e) {
+            const audio = document.getElementById('audio');
+            const iconSvg = document.getElementById('iconSvg');
+            if (!audio.src) {
+                alert('Chưa có nhạc, vui lòng thêm src cho audio.');
+                return;
+            }
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+
+            audio.addEventListener('play', () => {
+                iconSvg.classList.add('spin');
+            });
+            audio.addEventListener('pause', () => {
+                iconSvg.classList.remove('spin');
+            });
+        }
+
+
+        const btn = document.getElementById('player-btn');
+        btn.addEventListener('click', toggleMusic);
+    </script>
+    <script>
+        // const qrcode = document.getElementById('qr-btn');
+        // qrcode.addEventListener("click", toggleQR);
+
+        function toggleQR(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: "",
+                text: "",
+                imageUrl: "anh/DAT_4571.jpg",
+                imageWidth: '100%',
+                imageHeight: "auto",
+                imageAlt: "Custom image",
+                html: `
+                    <div class="qrcode-box">
+                        <div class="item">
+                            <div class="info">
+                                <p>Tên TK: PHAM THI LAN NHI</p>
+                                <p>Số TK: 1903 6726 8180 16</p>
+                                <p>Ngân hàng: TECHCOMBANK</p>
+                            </div>
+                            <div class="qrcode-img">
+                                <img src="anh/qrcode-01.jpeg" alt="">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="info">
+                                <p>Tên TK: TRAN HUY DONG PHUONG</p>
+                                <p>Số TK: 03810 0056 1204</p>
+                                <p>Ngân hàng: VIETCOMBANK</p>
+                            </div>
+                            <div class="qrcode-img">
+                                <img src="anh/qrcode-02.jpeg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                `,
+                confirmButtonColor: "#505738"
+            });
+        }
+    </script>
 </body>
+
 </html>
