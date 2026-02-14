@@ -512,8 +512,9 @@
   text-align: center;
 }
 
-.box-timeline .description {
-  margin: 0 12%;
+.box-timeline .description,
+.box-timeline .sub-description {
+  margin: 0 12% 2%;
   font-size: 14px;
 }
 
