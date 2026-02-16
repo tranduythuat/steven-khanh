@@ -313,8 +313,8 @@
 }
 
 .img-top {
-  width: 11%;
-  padding-top: 35px;
+  width: 18%;
+  padding-top: 8%;
 }
 
 .box-dot {
@@ -612,12 +612,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3%;
+  gap: 2%;
   margin-top: 10%;
 }
 
 .img1, .img2 {
-  width: 43%;
+  width: 47%;
   height: auto;
   background: var(--header-color);
   min-height: 200px;
