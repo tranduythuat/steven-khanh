@@ -260,22 +260,22 @@
                     <button class="xacnhan" type="submit">CONFIRM</button>
                 </div>
             </form>
-            <!-- <div class="card">
-                <p>
+            <div class="card">
+                <!-- <p>
                     “Gửi đến những người thân yêu và bạn bè không thể cùng hiện diện trong ngày cưới.
                     Chúng mình sẽ rất nhớ bạn trong ngày đặc biệt này, nhưng tình cảm và lời chúc phúc của bạn
                     luôn vô cùng ý nghĩa và sẽ mãi được trân trọng.”
                 </p>
                 <div class="lb-dot-card">
                     <label for="" class="lb-dot"><i class="fa-solid fa-diamond"></i></label>
-                </div>
+                </div> -->
 
                 <p style="font-style: italic;">
-                    /“FOR OUR DEAR FRIENDS AND FAMILY WHO CANNOT BE
+                    “FOR OUR DEAR FRIENDS AND FAMILY WHO CANNOT BE
                     WITH US. WE’LL MISS YOU ON OUR BIG DAY, BUT YOUR
                     LOVE AND WISHES MEAN THE WORLD TO US AND WILL
 
-                    ALWAYS BE CHERISHED”/
+                    ALWAYS BE CHERISHED”
                 </p>
 
                 <div class="flower">
@@ -283,12 +283,12 @@
                 </div>
 
                 <p>
-                    Gửi quà mừng cưới dành tặng cô dâu và chú rể nhé!<br>
+                    Send a wedding gift to the bride and groom!<br>
                 </p>
                 <div class="container-qr-code">
                     <a href="#" class="qr-btn" id="qr-btn">QR CODE</a>
                 </div>
-            </div> -->
+            </div>
 
             
 
@@ -524,38 +524,23 @@
         btn.addEventListener('click', toggleMusic);
     </script>
     <script>
-        // const qrcode = document.getElementById('qr-btn');
-        // qrcode.addEventListener("click", toggleQR);
+        const qrcode = document.getElementById('qr-btn');
+        qrcode.addEventListener("click", toggleQR);
 
         function toggleQR(e) {
             e.preventDefault();
             Swal.fire({
                 title: "",
                 text: "",
-                imageUrl: "anh/DAT_4571.jpg",
+                imageUrl: "https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/steven-khanh/IMG_3632.webp",
                 imageWidth: '100%',
                 imageHeight: "auto",
                 imageAlt: "Custom image",
                 html: `
                     <div class="qrcode-box">
                         <div class="item">
-                            <div class="info">
-                                <p>Tên TK: PHAM THI LAN NHI</p>
-                                <p>Số TK: 1903 6726 8180 16</p>
-                                <p>Ngân hàng: TECHCOMBANK</p>
-                            </div>
                             <div class="qrcode-img">
-                                <img src="anh/qrcode-01.jpeg" alt="">
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="info">
-                                <p>Tên TK: TRAN HUY DONG PHUONG</p>
-                                <p>Số TK: 03810 0056 1204</p>
-                                <p>Ngân hàng: VIETCOMBANK</p>
-                            </div>
-                            <div class="qrcode-img">
-                                <img src="anh/qrcode-02.jpeg" alt="">
+                                <img src="anh/QR STEVEN HOANG.png" alt="">
                             </div>
                         </div>
                     </div>

@@ -1216,12 +1216,11 @@ textarea::placeholder {
 
 .qrcode-box {
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: center;
 }
 
 .qrcode-box .item  {
   width: 50%;
-  margin-bottom: 6%;
   font-size: 13px;
   display: flex;
   flex-direction: column;
@@ -1254,6 +1253,9 @@ div:where(.swal2-container) div:where(.swal2-html-container) {
 /* QR code */
 div:where(.swal2-container) img:where(.swal2-image) {
   margin: 0 auto 1em !important;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: 50% 63%;
 }
 
 
