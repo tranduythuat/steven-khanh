@@ -435,65 +435,65 @@
     <script>
         "use strict";
         // Select all slides
-        const slides = document.querySelectorAll('.slide');
-        const dotsContainer = document.querySelector('.dots');
-        let currentIndex = 0;
-        let slideInterval;
+        // const slides = document.querySelectorAll('.slide');
+        // const dotsContainer = document.querySelector('.dots');
+        // let currentIndex = 0;
+        // let slideInterval;
 
-        // tạo dots
-        slides.forEach((_, index) => {
-            const dot = document.createElement('span');
-            dot.classList.add('dot');
-            dot.addEventListener('click', () => showSlide(index));
-            dotsContainer.appendChild(dot);
-        });
+        // // tạo dots
+        // slides.forEach((_, index) => {
+        //     const dot = document.createElement('span');
+        //     dot.classList.add('dot');
+        //     dot.addEventListener('click', () => showSlide(index));
+        //     dotsContainer.appendChild(dot);
+        // });
 
-        const dots = document.querySelectorAll('.dot');
-        const nextSlideBtn = document.querySelector(".btn-next");
-        const prevSlideBtn = document.querySelector(".btn-prev");
+        // const dots = document.querySelectorAll('.dot');
+        // const nextSlideBtn = document.querySelector(".btn-next");
+        // const prevSlideBtn = document.querySelector(".btn-prev");
 
-        nextSlideBtn.addEventListener("click", () => {
-            nextSlide();
-        })
+        // nextSlideBtn.addEventListener("click", () => {
+        //     nextSlide();
+        // })
 
-        prevSlideBtn.addEventListener("click", () => {
-            prevSlide();
-        })
+        // prevSlideBtn.addEventListener("click", () => {
+        //     prevSlide();
+        // })
 
-        function showSlide(index) {
-            slides.forEach(s => s.style.display = 'none');
-            dots.forEach(d => d.classList.remove('active'));
+        // function showSlide(index) {
+        //     slides.forEach(s => s.style.display = 'none');
+        //     dots.forEach(d => d.classList.remove('active'));
 
-            slides[index].style.display = 'block';
-            dots[index].classList.add('active');
+        //     slides[index].style.display = 'block';
+        //     dots[index].classList.add('active');
 
-            currentIndex = index;
+        //     currentIndex = index;
 
-            // reset interval để không bị nhảy sai
-            clearInterval(slideInterval);
-            startSlideShow();
-        }
+        //     // reset interval để không bị nhảy sai
+        //     clearInterval(slideInterval);
+        //     startSlideShow();
+        // }
 
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            showSlide(currentIndex);
-        }
+        // function nextSlide() {
+        //     currentIndex = (currentIndex + 1) % slides.length;
+        //     showSlide(currentIndex);
+        // }
 
-        function prevSlide() {
-            if (currentIndex === 0) {
-                currentIndex = slides.length - 1;
-            } else {
-                currentIndex--;
-            }
-            showSlide(currentIndex);
-        }
+        // function prevSlide() {
+        //     if (currentIndex === 0) {
+        //         currentIndex = slides.length - 1;
+        //     } else {
+        //         currentIndex--;
+        //     }
+        //     showSlide(currentIndex);
+        // }
 
-        function startSlideShow() {
-            slideInterval = setInterval(nextSlide, 5000); // 5 giây đổi ảnh
-        }
+        // function startSlideShow() {
+        //     slideInterval = setInterval(nextSlide, 5000); // 5 giây đổi ảnh
+        // }
 
-        // hiển thị slide đầu tiên
-        showSlide(currentIndex);
+        // // hiển thị slide đầu tiên
+        // showSlide(currentIndex);
         // startSlideShow();
 
     </script>
