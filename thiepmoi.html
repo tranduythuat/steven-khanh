@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Steven & Hoàng</title>
+    <title>Steven & Khánh</title>
     <meta property="og:title" content="Steven & Hoàng" />
-    <meta property="og:description" content="Steven Duong & Khánh Hoàng" />
+    <meta property="og:description" content="Steven Duong & Hoàng Khánh" />
 
     <meta property="og:image" content="" />
     <meta property="og:image:width" content="600" /> 
@@ -108,7 +108,7 @@
                     <label for="" class="lb-timeline1">Timeline</label>
                 </div>
                 <div class="description">
-                    Our full wedding day will be in Saigon! We’ll start with a Church Ceremony, followed by cocktails and a reception all on the same day. We are in the process of securing our venues and will update this site by the end of March with a full chedule and specific details in  HCMC.
+                    Our full wedding day will be in Saigon! We’ll start with a Church Ceremony, followed by cocktails and a reception all on the same day. We are in the process of securing our venues and will update this site by the end of March with a full schedule and specific details in  HCMC.
                 </div>
                 <div class="sub-description">
                     
@@ -198,7 +198,7 @@
             </div> -->
 
 
-            <form action="" name="nhi-phuong">
+            <form action="" name="duong-khanh">
                 <div class="logo">
                     <div class="box-flow">
                         <img src="anh/flower3-03.png" alt="" class="">
@@ -214,7 +214,7 @@
                 </div>
 
                 <div class="container-check attend-check">
-                    <input class="box-feed" type="radio" value="Tham dự" id="bride-yes" checked name="CONFIRM">
+                    <input class="box-feed" type="radio" value="Yes" id="bride-yes" checked name="CONFIRM">
                     <label class="check-box check-box-yes" for="bride-yes">
                         <h3 class="til-check">YES</h3>
                     </label>
@@ -222,7 +222,7 @@
                     <label class="check-box check-box-yes" for="groom-yes">
                         <h3 class="til-check">SẼ THAM DỰ TIỆC </br> NHÀ TRAI</h3>
                     </label> -->
-                    <input class="box-feed" type="radio" value="Không tham dự" id="no" name="CONFIRM">
+                    <input class="box-feed" type="radio" value="No" id="no" name="CONFIRM">
                     <label class="check-box" for="no">
                         <h3 class="til-check">NO</h3>
                     </label>
@@ -231,9 +231,9 @@
                 <div class="box-ten">
                     <input required class="inp-ten" type="text" id="name" name="NAME"
                         placeholder="Name">
-                    <input required class="inp-ten" type="text" name="GUEST"
+                    <input class="inp-ten" type="text" name="GUEST"
                         placeholder="Companion Name" />
-                    <input required class="inp-ten" type="text" name="DATE_BACK_SG"
+                    <input class="inp-ten" type="text" name="DATE_BACK_SG"
                         placeholder="When is your flight to Saigon, if you have already booked?" />
                 </div>
 
@@ -241,11 +241,11 @@
                     <label for="" class="lb-text">Do you have any special dietary requirements?</label>
                 </div>
                 <div class="container-check visible dietary-check">
-                    <input class="box-feed" type="radio" value="Không" id="khong_an_chay" name="dietary">
+                    <input class="box-feed" type="radio" value="No" id="khong_an_chay" name="dietary">
                     <label class="check-box" for="khong_an_chay">
                         <h3 class="til-check">No</h3>
                     </label>
-                    <input class="box-feed" type="radio" value="Tôi ăn chay" id="an_chay" name="dietary">
+                    <input class="box-feed" type="radio" value="I am vegetarian" id="an_chay" name="dietary">
                     <label class="check-box" for="an_chay"> 
                         <h3 class="til-check">I am vegetarian</h3>
                     </label>
@@ -348,8 +348,8 @@
 
     </script>
     <script>
-        const scripConfirmtURL = '?sheet=confirm';
-        const form = document.forms['nhi-phuong'];
+        const scripConfirmtURL = 'https://script.google.com/macros/s/AKfycbx-QBH84M7n944ELY3g2yZRgDtSpbEh-LSoR9dkH-hX7uTi5Yq0SY6GwVTI78KsiXga/exec?sheet=confirm';
+        const form = document.forms['duong-khanh'];
 
         form.addEventListener('submit', e => {
             e.preventDefault(); // Ngừng việc gửi form mặc định
@@ -360,9 +360,10 @@
             let data = Object.fromEntries(formData.entries());
             const confirm = data.CONFIRM;
             const name = data.NAME;
-            const number_guest = data.GUEST;
+            const guest_info = data.GUEST;
+            const timeToSG = data.DATE_BACK_SG;
             const dietary = data.dietary;
-            const wish = data.WISH;
+            const dietary_note = data.DIETARY_NOTE;
 
             // Gửi dữ liệu form đi
             fetch(scripConfirmtURL, {
@@ -370,9 +371,10 @@
                 body: new URLSearchParams({ 
                     name, 
                     confirm, 
-                    number_guest, 
+                    guest_info, 
+                    timeToSG,
                     dietary, 
-                    wish 
+                    dietary_note 
                 })
             })
                 .then(response => {
@@ -383,11 +385,11 @@
                         document.getElementById('loading-container').style.display = 'none';
 
                         Swal.fire({
-                            title: 'Thành công',
-                            text: 'Cảm ơn bạn đã gửi phản hồi, thông tin đã được gửi đến dâu rể rồi nhaa <3',
+                            title: 'Success',
+                            text: 'Thank you for your response! Your information has been sent to the bride and groom <3',
                             imageWidth: 300,
                             imageHeight: 200,
-                            confirmButtonText: 'ĐÓNG',
+                            confirmButtonText: 'Close',
                             background: '#f8f8f8',
                             padding: '20px',
                             customClass: {
@@ -408,7 +410,7 @@
 
                         Swal.fire({
                             title: 'Oops!',
-                            text: 'Lỗi mất rồi thử lại giúp chúng mình nhé',
+                            text: 'Something went wrong. Please try again for us.',
                             icon: 'error',
                             confirmButtonText: 'OK'
                         });
@@ -423,7 +425,7 @@
 
                     Swal.fire({
                         title: 'Oops!',
-                        text: 'Lỗi mất rồi thử lại giúp chúng mình nhé',
+                        text: 'Something went wrong. Please try again for us.',
                         icon: 'error',
                         confirmButtonText: 'OK'
                     });
