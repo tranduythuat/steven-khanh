@@ -303,7 +303,7 @@
 .box-contop {
   width: 100%;
   height: auto;
-  background-image:linear-gradient(to bottom,rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.233)), url("../anh/IMG_3631.webp");
+  background-image:linear-gradient(to bottom,rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.233)), url("https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/steven-khanh/IMG_3631.webp");
   background-position: 49% 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -999,7 +999,7 @@ textarea::placeholder {
 }
 
 .end {
-  background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0),rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.363)),url('../anh/IMG_3632.webp');
+  background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0),rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.363)),url('https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/steven-khanh/IMG_3632.webp');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
